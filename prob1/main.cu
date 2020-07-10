@@ -4,7 +4,8 @@
 #include <vector>
 
 
-__device__ bool is_case(int a) {
+__device__ 
+bool is_case(int a) {
     bool res;
     if (a % 3 == 0) {
         res = true;
@@ -16,7 +17,8 @@ __device__ bool is_case(int a) {
 }
 
 
-__global__ void find_cases(thrust::device_vector<int> v, thrust::device_vector<bool>& flags) {
+__global__ 
+void find_cases(thrust::device_vector<int> v, thrust::device_vector<bool>& flags) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (is_case(v[i])) {
